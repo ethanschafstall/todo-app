@@ -18,6 +18,13 @@ FROM node:20.14 AS app
 WORKDIR /app
 COPY --from=frontend /frontend ./frontend
 COPY --from=backend /backend ./backend
-COPY ./run-app.sh ./
-CMD ["bash", "run-app.sh"]
 
+# Copy the run-app.sh script and fix Windows line endings
+COPY ./run-app.sh ./
+RUN sed -i 's/\r//' run-app.sh
+
+# Make sure the script is executable
+RUN chmod +x run-app.sh
+
+# Set the default command to run the script
+CMD ["bash", "run-app.sh"]
