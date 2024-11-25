@@ -1,0 +1,25 @@
+Email :
+	94 caractères max pour login email
+	@ uniquement pour adresse email valide
+	Si plusieurs @ invalides
+	Si espace invalide
+	Si point après @ invalide
+	
+Mot de passe :
+	Longueur comme on veut
+	
+Tâche :
+	Si trop long crash, erreur : "SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON", pourrait être plus compréhensible
+	Si très long sort de la case et continue à droite
+	Espace accepté
+	Supprimer les taches sans être connecté
+	Mon profil -> Mes tâches -> Se déconnecter, on reste sur la page et on peut toujours supprimer/marquer les tâches
+	
+UI/UX :
+	"Mot de passe oublier"
+		Typo
+		Vide
+	Mon profile, si entrée invalide pas de message d'erreur
+		NPA devient 0
+	"L'application permet également gérer le profile de l'utilisateur connecté."
+		Typo
