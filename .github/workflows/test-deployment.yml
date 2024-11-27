@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - "main"
+      - "dev"
     tags:
       - "v*.*.*"
     #workflow_dispatch:
@@ -39,6 +39,9 @@ jobs:
 
     #- name: Linting
     #  run: ping -n 1 127.0.0.1 #TODO
+    - name: run esLint
+      run: |
+        npx eslint
 
     #- name: Unit Testing
     #  run: ping -n 1 127.0.0.1 #TODO 
