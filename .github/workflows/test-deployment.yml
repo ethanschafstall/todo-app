@@ -50,7 +50,7 @@ jobs:
       #  username: ${{ vars.DOCKER_USERNAME }}
       #  password: $DOCKER_PASSWORD
 
-    - name: Build the docker image
+    - name: Build the docker image latest
       run: docker build . --file Dockerfile --tag todo-app:latest #TODO : date +%S differs when executed later
 
     - name: Push Docker image to Docker Hub latest
@@ -63,6 +63,9 @@ jobs:
         git fetch --tags 
         LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
         echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
+
+    - name: Build the docker image latest
+      run: docker build . --file Dockerfile --tag todo-app:$LATEST_TAG #TODO : date +%S differs when executed later
 
     - name: Push Docker image to Docker Hub version
       run: |
