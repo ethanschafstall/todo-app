@@ -41,6 +41,7 @@ jobs:
     #  run: ping -n 1 127.0.0.1 #TODO
     - name: run esLint
       run: |
+        cd ./frontend
         npx eslint
 
     #- name: Unit Testing
