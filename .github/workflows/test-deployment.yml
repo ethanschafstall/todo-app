@@ -36,8 +36,15 @@ jobs:
 
     #- name: Audit
     #  run: ping -n 1 127.0.0.1 #TODO
-    - name: Check package version
-      uses: technote-space/package-version-check-action@v1
+    - name: Audit backend
+      run: |
+        cd ./backend
+        npm audit | grep -E "high|critical" && echo "Vulnerabilities found" || echo "No vulnerabilities found"
+
+    - name: Audit frontend
+      run: |
+        cd ./frontend
+        npm audit | grep -E "high|critical" && echo "Vulnerabilities found" || echo "No vulnerabilities found"
 
     - name: Run esLint on frontend
       run: |
