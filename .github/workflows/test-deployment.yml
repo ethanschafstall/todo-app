@@ -53,7 +53,18 @@ jobs:
     - name: Build the docker image
       run: docker build . --file Dockerfile --tag todo-app:latest #TODO : date +%S differs when executed later
 
-    - name: Push Docker image to Docker Hub
+    - name: Push Docker image to Docker Hub latest
       run: |
         docker tag todo-app:latest ${{ vars.DOCKER_USERNAME }}/todo-app:latest
         docker push ${{ vars.DOCKER_USERNAME }}/todo-app:latest
+
+    - name: Get latest tag
+      run: |
+        git fetch --tags 
+        LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+        echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
+
+    - name: Push Docker image to Docker Hub version
+      run: |
+        docker tag todo-app:$LATEST_TAG ${{ vars.DOCKER_USERNAME }}/todo-app:$LATEST_TAG
+        docker push ${{ vars.DOCKER_USERNAME }}/todo-app:$LATEST_TAG
