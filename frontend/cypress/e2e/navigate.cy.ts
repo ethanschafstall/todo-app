@@ -72,6 +72,14 @@ describe('Check navigation', () => {
       //Go to the /about page
       cy.visit('/about')
     })
+    it('from about to route by logo', () => {
+      //Go to the /about page
+      cy.visit('/about')
+    })
+    it('from about to route', () => {
+      //Go to the /about page
+      cy.visit('/about')
+    })
     it('from about to dark theme about', () => {
       //Go to the /about page
       cy.visit('/about')
@@ -81,6 +89,14 @@ describe('Check navigation', () => {
       cy.visit('/about')
     })
     it('from dark theme about to dark theme login', () => {
+      //Go to the /about page
+      cy.visit('/about')
+    })
+    it('from dark theme about to dark theme route by logo', () => {
+      //Go to the /about page
+      cy.visit('/about')
+    })
+    it('from dark theme about to dark theme route', () => {
       //Go to the /about page
       cy.visit('/about')
     })
@@ -183,5 +199,79 @@ describe('Check navigation', () => {
     it('from dark theme profile to profile', () => {
       //Go to the /profile page
       cy.visit('/profile')
+    })
+    it('from 404 to login by logo', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from 404 to login by nav', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from 404 to login', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from 404 to route by logo', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from 404 to route by nav', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from 404 to route', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from 404 to about', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from 404 to profile', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    //TODO from 404 disconnect
+    it('from 404 to dark theme 404', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme login by logo', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme login by nav', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme login', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme route by logo', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme route by nav', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme route', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme about', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    it('from dark theme 404 to dark theme profile', () => {
+      //Go to the /profile page
+      cy.visit('/404')
+    })
+    //TODO 404 dark theme disconnect
+    it('from dark theme 404 to 404', () => {
+      //Go to the /profile page
+      cy.visit('/404')
     })
   })
