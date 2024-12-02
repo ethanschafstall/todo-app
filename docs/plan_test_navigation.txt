@@ -63,9 +63,10 @@ Et mot de passe oublié?
 
 # Du 404
 /404 -> /login (logo)
+/404 -> /login (nav)
 /404 -> /login
 /404 -> / (logo)
-/404 -> /
+/404 -> / (nav)
 /404 -> /
 /404 -> /about
 /404 -> profile
