@@ -21,7 +21,7 @@ Et mot de passe oublié?
 
 # Du about
 /about -> /login (logo)
-/about -> / (logo)
+/about -> /login
 /about -> /about:dark
 /about:dark -> /login:dark (logo)
 /about:dark -> /:dark (logo)
@@ -56,3 +56,5 @@ Et mot de passe oublié?
 /profile:dark -> /register:dark
 (/profile:dark -> /login:dark)??
 /profile:dark -> /profile
+
+TODO : about and 404
