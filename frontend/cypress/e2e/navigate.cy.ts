@@ -2,6 +2,12 @@ describe('Check navigation', () => {
     it('from login to login by logo', () => {
       //Go to the /login page
       cy.visit('/login')
+
+      //Click the logo
+      cy.contains('Todo').click()
+
+      //Check url
+      cy.url().should('include', '/login')
     })
     it('from login to about', () => {
       //Go to the /login page
