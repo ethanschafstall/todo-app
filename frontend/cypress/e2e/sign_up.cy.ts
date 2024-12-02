@@ -13,7 +13,7 @@ describe('Create an account', () => {
     //Click the create an account button
     cy.contains('Créer un compte').click()
 
-    //Check if it has been redirected to /login
+    //Check if it has been redirected to /login, we consider that an account successfully created
     cy.url().should('include', '/login')
   })
   it('empty value', () => {
