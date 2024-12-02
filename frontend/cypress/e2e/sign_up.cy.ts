@@ -16,9 +16,12 @@ describe('Create an account', () => {
     //Check if it has been redirected to /login
     cy.url().should('include', '/login')
   })
-  it('empty email', () => {
+  it('empty value', () => {
     //Go to the /register page
     cy.visit('/register')
+
+    //Click the create an account button
+    cy.contains('Créer un compte').click()
 
     //Check the error message has appeared 3 times
     cy.contains('Vous devez renseigner ce champ').should('be.visible') //TODO check if it appears 3 times
