@@ -22,9 +22,13 @@ Et mot de passe oublié?
 # Du about
 /about -> /login (logo)
 /about -> /login
+/about -> / (logo)
+/about -> /
 /about -> /about:dark
 /about:dark -> /login:dark (logo)
+/about:dark -> /login:dark 
 /about:dark -> /:dark (logo)
+/about:dark -> /:dark
 /about:dark -> /about
 
 # De la racine
@@ -57,4 +61,22 @@ Et mot de passe oublié?
 (/profile:dark -> /login:dark)??
 /profile:dark -> /profile
 
-TODO : about and 404
+# Du 404
+/404 -> /login (logo)
+/404 -> /login
+/404 -> / (logo)
+/404 -> /
+/404 -> /
+/404 -> /about
+/404 -> profile
+/404 - disconnect
+/404 -> /404:dark
+/404:dark -> /login (logo)
+/404:dark -> /login
+/404:dark -> / (logo)
+/404:dark -> /
+/404:dark -> /
+/404:dark -> /about
+/404:dark -> profile
+/404:dark - disconnect
+/404:dark -> /404
