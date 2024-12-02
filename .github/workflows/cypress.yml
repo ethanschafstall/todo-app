@@ -9,11 +9,13 @@ jobs:
       - name: Start frontend
         run: |
           cd ./frontend
+          npm install
           npm run dev
       
       - name: Start backend
         run: |
           cd ./backend
+          npm install
           npm start
 
       - name: Cypress run
