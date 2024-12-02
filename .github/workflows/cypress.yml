@@ -6,6 +6,7 @@ jobs:
       - name: Checkout the latest commit
         uses: actions/checkout@v4
       - name: Cypress run
+        run: cd ./frontend
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
