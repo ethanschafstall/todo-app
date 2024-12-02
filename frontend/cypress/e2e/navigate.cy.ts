@@ -9,22 +9,56 @@ describe('Check navigation', () => {
       //Check url
       cy.url().should('include', '/login')
     })
+
     it('from login to about', () => {
       //Go to the /login page
       cy.visit('/login')
+
+      //Click the about
+      cy.contains('À propos').click()
+
+      //Check url
+      cy.url().should('include', '/about')
     })
+
     it('from login to register', () => {
       //Go to the /login page
       cy.visit('/login')
+
+      //Click the create account
+      cy.contains('Créer votre compte').click()
+
+      //Check url
+      cy.url().should('include', '/register')
     })
+
     it('from login to dark theme login', () => {
       //Go to the /login page
       cy.visit('/login')
+
+      //Click the logo
+      cy.contains('theme-toggle').click()
+
+      //Check url
+      cy.get('html').should('have.class', 'dark')
+      cy.url().should('include', '/login')
     })
+
     it('from dark theme login to dark theme login by logo', () => {
       //Go to the /login page
       cy.visit('/login')
+
+      //Go to dark mode
+      cy.get('html').invoke('addClass', 'dark')
+
+      //Click the logo
+      cy.contains('Todo').click()
+
+      //Check url
+      cy.url().should('include', '/login')
+      cy.get('html').should('have.class', 'dark')
     })
+
     it('from dark theme login to dark theme about', () => {
       //Go to the /login page
       cy.visit('/login')
