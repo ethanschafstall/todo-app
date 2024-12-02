@@ -17,7 +17,9 @@ jobs:
           npm install
 
       - name: Start backend
-        run: npm start
+        run: |
+          cd ./backend
+          npm start
       
       - name: Install frontend dependencies
         run: |
