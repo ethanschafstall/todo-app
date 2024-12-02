@@ -16,4 +16,15 @@ describe('Create an account', () => {
     //Check if it has been redirected to /login
     cy.url().should('include', '/login')
   })
+  it('empty value', () => {
+    //Go to the /register page
+    cy.visit('/register')
+
+    //Click the create an account button without any value
+    cy.contains('Créer un compte').click()
+
+    //Check the error message has appeared
+    cy.contains('Vous devez renseigner ce champ').should('be.visible')
+    cy.contains('Le mot de passe doit faire au moins 5 caractères').should('be.visible')
+  })
 })
