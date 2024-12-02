@@ -1,0 +1,58 @@
+# Du login
+/login -> /login (logo)
+/login -> /about
+/login -> /register
+/login -> /login:dark
+/login:dark -> /login_dark (logo)
+/login:dark -> /about:dark
+/login:dark -> /register:dark
+/login:dark -> /login
+Et mot de passe oublié?
+
+# Du register
+/register -> /login (logo)
+/register -> /login
+/register -> /about
+/register -> /register:dark
+/register:dark -> /login:dark (logo)
+/register:dark -> /login:dark
+/register:dark -> /about:dark
+/register:dark -> /register
+
+# Du about
+/about -> /login (logo)
+/about -> / (logo)
+/about -> /about:dark
+/about:dark -> /login:dark (logo)
+/about:dark -> /:dark (logo)
+/about:dark -> /about
+
+# De la racine
+/ -> / (logo)
+/ -> /
+/ -> /about
+/ -> /profile
+(/ -> /login)??
+/ -> /:dark
+/:dark -> /:dark (logo)
+/:dark -> /:dark
+/:dark -> /about:dark
+/:dark -> /profile:dark
+(/:dark -> /login:dark)??
+/:dark -> /
+
+# Du profile
+/profile -> / (logo)
+/profile -> /
+/profile -> /about
+/profile -> /profile
+/profile -> /register
+(/profile -> /login)??
+/profile -> /profile:dark
+/profile:dark -> /:dark (logo)
+/profile:dark -> /:dark
+/profile:dark -> /about:dark
+/profile:dark -> /profile:dark
+/profile:dark -> /register:dark
+(/profile:dark -> /login:dark)??
+/profile:dark -> /profile
