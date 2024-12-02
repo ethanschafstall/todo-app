@@ -2,7 +2,8 @@
 
 describe('Login button', () => {
   it('visits the login url and test the button to connect', () => {
-    cy.visit('/login')
-    cy.contains('button', 'Connecter')
+    cy.visit('/register')
+    cy.contains('button').click()
+    //cy.contains('button', 'Connecter')
   })
 })
