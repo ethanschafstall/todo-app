@@ -8,12 +8,12 @@ jobs:
 
       - name: Start frontend
         run: |
-          ./frontend
+          cd ./frontend
           npm run dev
       
       - name: Start backend
         run: |
-          ./backend
+          cd ./backend
           npm start
 
       - name: Cypress run
