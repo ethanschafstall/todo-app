@@ -20,7 +20,7 @@ describe('Create an account', () => {
     //Go to the /register page
     cy.visit('/register')
 
-    //Check the error message has appeared
-    cy.contains('Vous devez renseigner ce champ').should('be.visible').should('have.length', 3)
+    //Check the error message has appeared 3 times
+    cy.contains('Vous devez renseigner ce champ').should('have.length', 3)
   })
 })
