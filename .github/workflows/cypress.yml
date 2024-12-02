@@ -14,8 +14,10 @@ jobs:
       - name: Install backend dependencies
         run: |
           cd ./backend
-          npm start
-          sleep 5
+          npm install
+
+      - name: Start backend
+        run: npm start
       
       - name: Install frontend dependencies
         run: |
