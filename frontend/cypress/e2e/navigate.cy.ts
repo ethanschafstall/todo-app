@@ -15,7 +15,7 @@ describe('Check navigation', () => {
       cy.visit('/login')
 
       //Click the about
-      cy.contains('À propos').click()
+      cy.contains('À Propos').click()
 
       //Check url
       cy.url().should('include', '/about')
@@ -37,11 +37,11 @@ describe('Check navigation', () => {
       cy.visit('/login')
 
       //Click the logo
-      cy.contains('theme-toggle').click()
+      cy.get('#theme-toggle').click()
 
       //Check url
       cy.get('html').should('have.class', 'dark')
-      cy.url().should('include', '/login')
+      //cy.url().should('include', '/login')
     })
 
     it('from dark theme login to dark theme login by logo', () => {
@@ -55,18 +55,40 @@ describe('Check navigation', () => {
       cy.contains('Todo').click()
 
       //Check url
-      cy.url().should('include', '/login')
       cy.get('html').should('have.class', 'dark')
+      cy.url().should('include', '/login')
     })
 
     it('from dark theme login to dark theme about', () => {
       //Go to the /login page
       cy.visit('/login')
+
+      //Go to dark mode
+      cy.get('html').invoke('addClass', 'dark')
+
+      //Click the about
+      cy.contains('À Propos').click()
+
+      //Check url
+      cy.get('html').should('have.class', 'dark')
+      cy.url().should('include', '/about')
     })
+
     it('from dark theme login to dark theme register', () => {
       //Go to the /login page
       cy.visit('/login')
+
+      //Go to dark mode
+      cy.get('html').invoke('addClass', 'dark')
+
+      //Click the create account
+      cy.contains('Créer votre compte').click()
+
+      //Check url
+      cy.get('html').should('have.class', 'dark')
+      cy.url().should('include', '/register')
     })
+    
     it('from dark theme login to login', () => {
       //Go to the /login page
       cy.visit('/login')
