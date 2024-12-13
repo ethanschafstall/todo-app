@@ -17,8 +17,6 @@ const PROFIL_LINK = '#headlessui-menu-item-v-4'
 const DELETE_ACCOUNT_TEXT = 'Supprimer votre compte'
 const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
-//Create an account to login
-createAccount()
 function createAccount()
 {
   cy.visit(REGISTER_URL)
@@ -177,6 +175,7 @@ describe('Check navigation', () => {
     })
 
     it('from about to route by logo', () => {
+      createAccount()
       login()
       cy.visit(ABOUT_URL)
       cy.contains(LOGO_TEXT).click()
@@ -184,6 +183,7 @@ describe('Check navigation', () => {
     })
 
     it('from about to route by nav', () => {
+      createAccount()
       login()
       cy.visit(ABOUT_URL)
       cy.contains(ROUTE_TEXT).click()
@@ -214,6 +214,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme about to dark theme route by logo', () => {
+      createAccount()
       login()
       cy.visit(ABOUT_URL)
       cy.contains(THEME_TOGGLE).click()
@@ -223,6 +224,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme about to dark theme route', () => {
+      createAccount()
       login()
       cy.visit(ABOUT_URL)
       cy.contains(THEME_TOGGLE).click()
@@ -240,6 +242,7 @@ describe('Check navigation', () => {
     })
 
     it('from route to route by logo', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.contains(LOGO_TEXT).click()
@@ -247,6 +250,7 @@ describe('Check navigation', () => {
     })
  
     it('from route to route', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.contains(ROUTE_TEXT).click()
@@ -254,6 +258,7 @@ describe('Check navigation', () => {
     })
  
     it('from route to about', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.contains(ABOUT_TEXT).click()
@@ -261,6 +266,7 @@ describe('Check navigation', () => {
     })
  
     it('from route to profile', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.get(LOGGED_BUTTON).click()
@@ -271,6 +277,7 @@ describe('Check navigation', () => {
     //TODO if diconnect light theme
  
     it('from route to dark theme route', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
@@ -279,6 +286,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme route to dark theme route by logo', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
@@ -288,6 +296,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme route to dark theme route', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
@@ -297,6 +306,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme route to dark theme about', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
@@ -306,6 +316,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme route to dark theme profile', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
@@ -318,6 +329,7 @@ describe('Check navigation', () => {
     //TODO if disconnect dark theme
 
     it('from dark theme route to route', () => {
+      createAccount()
       login()
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
@@ -327,6 +339,7 @@ describe('Check navigation', () => {
     })
 
     it('from profile to route by logo', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.contains(LOGO_TEXT).click()
@@ -334,6 +347,7 @@ describe('Check navigation', () => {
     })
 
     it('from profile to route', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.contains(ROUTE_TEXT).click()
@@ -341,6 +355,7 @@ describe('Check navigation', () => {
     })
 
     it('from profile to about', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.contains(ABOUT_TEXT).click()
@@ -348,6 +363,7 @@ describe('Check navigation', () => {
     })
 
     it('from profile to profile', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(LOGGED_BUTTON).click()
@@ -356,6 +372,7 @@ describe('Check navigation', () => {
     })
 
     it('from profile to register', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.contains(DELETE_ACCOUNT_TEXT).click()
@@ -365,6 +382,7 @@ describe('Check navigation', () => {
     //TODO if disconnect light theme
 
     it('from profile to dark theme profile', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
@@ -373,6 +391,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme profile to dark theme route by logo', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
@@ -382,6 +401,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme profile to dark theme route', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
@@ -391,6 +411,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme profile to dark theme about', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
@@ -400,6 +421,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme profile to dark theme profile', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
@@ -410,6 +432,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme profile to dark theme register', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
@@ -421,6 +444,7 @@ describe('Check navigation', () => {
     //TODO if disconnect dark theme
 
     it('from dark theme profile to profile', () => {
+      createAccount()
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
@@ -441,6 +465,7 @@ describe('Check navigation', () => {
     })
 
     it('from 404 to route by logo', () => {
+      createAccount()
       login()
       cy.visit(URL_404)
       cy.contains(LOGO_TEXT).click()
@@ -448,6 +473,7 @@ describe('Check navigation', () => {
     })
 
     it('from 404 to route by nav', () => {
+      createAccount()
       login()
       cy.visit(URL_404)
       cy.contains(ROUTE_TEXT).click()
@@ -461,6 +487,7 @@ describe('Check navigation', () => {
     })
 
     it('from 404 to profile', () => {
+      createAccount()
       login()
       cy.visit(URL_404)
       cy.get(LOGGED_BUTTON).click()
@@ -494,6 +521,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme 404 to dark theme route by logo', () => {
+      createAccount()
       login()
       cy.visit(URL_404)
       cy.get(THEME_TOGGLE).click() //Dark mode
@@ -503,6 +531,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme 404 to dark theme route by nav', () => {
+      createAccount()
       login()
       cy.visit(URL_404)
       cy.get(THEME_TOGGLE).click() //Dark mode
@@ -512,6 +541,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme 404 to dark theme route', () => {
+      createAccount()
       login()
       cy.visit(URL_404)
       cy.get(THEME_TOGGLE).click() //Dark mode
@@ -529,6 +559,7 @@ describe('Check navigation', () => {
     })
 
     it('from dark theme 404 to dark theme profile', () => {
+      createAccount()
       login()
       cy.visit(URL_404)
       cy.get(THEME_TOGGLE).click() //Dark mode
