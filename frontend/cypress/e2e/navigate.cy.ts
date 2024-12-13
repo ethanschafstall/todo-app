@@ -49,7 +49,7 @@ describe('Check navigation', () => {
       cy.visit('/login')
 
       //Go to dark mode
-      cy.get('html').invoke('addClass', 'dark')
+      cy.get('#theme-toggle').click()
 
       //Click the logo
       cy.contains('Todo').click()
@@ -64,7 +64,7 @@ describe('Check navigation', () => {
       cy.visit('/login')
 
       //Go to dark mode
-      cy.get('html').invoke('addClass', 'dark')
+      cy.get('#theme-toggle').click()
 
       //Click the about
       cy.contains('À Propos').click()
