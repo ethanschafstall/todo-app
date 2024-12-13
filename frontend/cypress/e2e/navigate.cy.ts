@@ -1,5 +1,3 @@
-import type internal from "stream"
-
 const LOGIN_URL = '/login'
 const ABOUT_URL = '/about'
 const REGISTER_URL = '/register'
@@ -23,7 +21,7 @@ let username = ""
 
 function createAccount()
 {
-  username = generateRandomString(10) + "@test"
+  username = generateRandomString() + "@test"
 
   cy.visit(REGISTER_URL)
   cy.get('input[name="email"]').type(username)
@@ -37,10 +35,10 @@ function login()
   cy.get('input[name="password"]').type('1!TestPassword...')
   cy.contains(CONNECT_BUTTON_TEXT).click()
 }
-function generateRandomString(length : internal) {
+function generateRandomString() {
   let randomString = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < 10; i++) {
       randomString += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return randomString;
