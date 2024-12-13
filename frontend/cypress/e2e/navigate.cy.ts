@@ -31,10 +31,9 @@ function createAccount() {
   cy.get('input[name="password"]').type('1!TestPassword...');
   cy.get('input[name="confirmation"]').type('1!TestPassword...');
   cy.contains('Créer votre compte').click(); // Soumettez le formulaire
-  return username; // Retournez le username généré  
 }
 
-function login(username : string) {
+function login() {
   cy.visit(LOGIN_URL);
   cy.get('input[name="email"]').type(username);
   cy.get('input[name="password"]').type('1!TestPassword...');
