@@ -19,22 +19,24 @@ const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
 let username = ""
 
-function createAccount()
-{
-  username = generateRandomString() + "@test"
+function createAccount() {
+  const username = generateRandomString() + "@test";  // Utiliser une variable locale
 
-  cy.visit(REGISTER_URL)
-  cy.get('input[name="email"]').type(username)
-  cy.get('input[name="password"]').type('1!TestPassword...')
-  cy.get('input[name="confirmation"]').type('1!TestPassword...')
+  cy.visit(REGISTER_URL);
+  cy.get('input[name="email"]').type(username);
+  cy.get('input[name="password"]').type('1!TestPassword...');
+  cy.get('input[name="confirmation"]').type('1!TestPassword...');
+  cy.contains('Créer votre compte').click(); // Soumettez le formulaire  
+  return username; // Retournez le username généré  
 }
-function login()
-{
-  cy.visit('/login')
-  cy.get('input[name="email"]').type(username)
-  cy.get('input[name="password"]').type('1!TestPassword...')
-  cy.contains(CONNECT_BUTTON_TEXT).click()
+
+function login(username : string) {
+  cy.visit(LOGIN_URL);
+  cy.get('input[name="email"]').type(username);
+  cy.get('input[name="password"]').type('1!TestPassword...');
+  cy.contains(CONNECT_BUTTON_TEXT).click();
 }
+
 function generateRandomString() {
   let randomString = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
