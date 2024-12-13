@@ -1,3 +1,5 @@
+import type internal from "stream"
+
 const LOGIN_URL = '/login'
 const ABOUT_URL = '/about'
 const REGISTER_URL = '/register'
@@ -17,19 +19,31 @@ const PROFIL_LINK = '#headlessui-menu-item-v-4'
 const DELETE_ACCOUNT_TEXT = 'Supprimer votre compte'
 const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
+let username = ""
+
 function createAccount()
 {
+  username = generateRandomString(10) + "@test"
+
   cy.visit(REGISTER_URL)
-  cy.get('input[name="email"]').type('testuser@example.com')
+  cy.get('input[name="email"]').type(username)
   cy.get('input[name="password"]').type('1!TestPassword...')
   cy.get('input[name="confirmation"]').type('1!TestPassword...')
 }
 function login()
 {
   cy.visit('/login')
-  cy.get('input[name="email"]').type('testuser@example.com')
+  cy.get('input[name="email"]').type(username)
   cy.get('input[name="password"]').type('1!TestPassword...')
   cy.contains(CONNECT_BUTTON_TEXT).click()
+}
+function generateRandomString(length : internal) {
+  let randomString = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < length; i++) {
+      randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return randomString;
 }
 
 describe('Check navigation', () => {
