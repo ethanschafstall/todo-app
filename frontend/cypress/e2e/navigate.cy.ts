@@ -1,5 +1,5 @@
 describe('Check navigation', () => {
-    it('from login to login by logo', () => {
+    it('from login to login by logo', () => { 
       //Go to the /login page
       cy.visit('/login')
 
