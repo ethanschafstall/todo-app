@@ -24,7 +24,7 @@ function createAccount() {
   cy.exec('sessionStorage.clear()');
   cy.clearCookies();
 
-  const username = generateRandomString() + "@test";  // Utiliser une variable locale
+  username = generateRandomString() + "@test";  // Utiliser une variable locale
 
   cy.visit(REGISTER_URL);
   cy.get('input[name="email"]').type(username);
