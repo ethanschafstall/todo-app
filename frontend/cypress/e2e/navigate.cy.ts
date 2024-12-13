@@ -41,7 +41,7 @@ describe('Check navigation', () => {
 
       //Check url
       cy.get('html').should('have.class', 'dark')
-      //cy.url().should('include', '/login')
+      cy.url().should('include', '/login')
     })
 
     it('from dark theme login to dark theme login by logo', () => {
@@ -99,7 +99,7 @@ describe('Check navigation', () => {
 
       //Check url
       cy.get('html').should('not.have.class')
-      cy.url().should('include', '/register')
+      cy.url().should('include', '/login')
     })
     //TODO password forgotten
     it('from register to login by logo', () => {
@@ -353,7 +353,7 @@ describe('Check navigation', () => {
       cy.visit('/404')
       cy.get('#theme-toggle').click() //Dark mode
       cy.contains('Todo').click()
-      cy.url().should('include', '/404')
+      cy.url().should('include', '/login')
       cy.get('html').should('have.class', 'dark')
     })
     it('from dark theme 404 to dark theme login', () => {
