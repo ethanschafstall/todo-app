@@ -20,13 +20,17 @@ const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 let username = ""
 
 function createAccount() {
+  cy.exec('localStorage.clear()');
+  cy.exec('sessionStorage.clear()');
+  cy.clearCookies();
+
   const username = generateRandomString() + "@test";  // Utiliser une variable locale
 
   cy.visit(REGISTER_URL);
   cy.get('input[name="email"]').type(username);
   cy.get('input[name="password"]').type('1!TestPassword...');
   cy.get('input[name="confirmation"]').type('1!TestPassword...');
-  cy.contains('Créer votre compte').click(); // Soumettez le formulaire  
+  cy.contains('Créer votre compte').click(); // Soumettez le formulaire
   return username; // Retournez le username généré  
 }
 
