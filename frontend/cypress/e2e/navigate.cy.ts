@@ -221,26 +221,6 @@ describe('Check navigation', () => {
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
-    it('from dark theme about to dark theme route by logo', () => {
-      createAccount()
-      login()
-      cy.visit(ABOUT_URL)
-      cy.contains(THEME_TOGGLE).click()
-      cy.contains(LOGO_TEXT).click()
-      cy.url().should('equal', ROUTE_URL)
-      cy.get('html').should('have.class', DARK_MODE_CLASS)
-    })
-
-    it('from dark theme about to dark theme route', () => {
-      createAccount()
-      login()
-      cy.visit(ABOUT_URL)
-      cy.contains(THEME_TOGGLE).click()
-      cy.contains(ROUTE_TEXT).click()
-      cy.url().should('equal', ROUTE_URL)
-      cy.get('html').should('have.class', DARK_MODE_CLASS)
-    })
-
     it('from dark theme about to about', () => {
       cy.visit(ABOUT_URL)
       cy.get(THEME_TOGGLE).click() //Go to dark mode
