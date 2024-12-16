@@ -2,7 +2,7 @@ const LOGIN_URL = '/login'
 const ABOUT_URL = '/about'
 const REGISTER_URL = '/register'
 const URL_404 = '/404'
-const ROUTE_URL = '/'
+const ROUTE_URL = 'http://localhost:5173'
 const PROFIL_URL = '/profile'
 const THEME_TOGGLE = '#theme-toggle'
 const LOGO_TEXT = 'Todo'
@@ -187,7 +187,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(ABOUT_URL)
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from about to route by nav', () => {
@@ -195,7 +195,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(ABOUT_URL)
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from about to dark theme about', () => {
@@ -227,7 +227,7 @@ describe('Check navigation', () => {
       cy.visit(ABOUT_URL)
       cy.contains(THEME_TOGGLE).click()
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -237,7 +237,7 @@ describe('Check navigation', () => {
       cy.visit(ABOUT_URL)
       cy.contains(THEME_TOGGLE).click()
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -254,7 +254,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(ROUTE_URL)
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from route to route', () => {
@@ -262,7 +262,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(ROUTE_URL)
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from route to about', () => {
@@ -289,7 +289,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -299,7 +299,7 @@ describe('Check navigation', () => {
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -309,7 +309,7 @@ describe('Check navigation', () => {
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -342,7 +342,7 @@ describe('Check navigation', () => {
       cy.visit(ROUTE_URL)
       cy.get(THEME_TOGGLE).click()
       cy.get(THEME_TOGGLE).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('not.have.class')
     })
 
@@ -351,7 +351,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(PROFIL_URL)
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from profile to route', () => {
@@ -359,7 +359,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(PROFIL_URL)
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from profile to about', () => {
@@ -404,7 +404,7 @@ describe('Check navigation', () => {
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -414,7 +414,7 @@ describe('Check navigation', () => {
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -456,7 +456,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(PROFIL_URL)
       cy.get(THEME_TOGGLE).click()
-      cy.url().should('contain', REGISTER_URL)
+      cy.url().should('contain', PROFIL_URL)
       cy.get('html').should('not.have.class')
     })
 
@@ -477,7 +477,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(URL_404)
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('include', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from 404 to route by nav', () => {
@@ -485,7 +485,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(URL_404)
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('include', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
     })
 
     it('from 404 to about', () => {
@@ -534,7 +534,7 @@ describe('Check navigation', () => {
       cy.visit(URL_404)
       cy.get(THEME_TOGGLE).click() //Dark mode
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -544,7 +544,7 @@ describe('Check navigation', () => {
       cy.visit(URL_404)
       cy.get(THEME_TOGGLE).click() //Dark mode
       cy.contains(ROUTE_TEXT).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
@@ -554,7 +554,7 @@ describe('Check navigation', () => {
       cy.visit(URL_404)
       cy.get(THEME_TOGGLE).click() //Dark mode
       cy.contains(REDIRECT_TEXT_404).click()
-      cy.url().should('contain', ROUTE_URL)
+      cy.url().should('equal', ROUTE_URL)
       cy.get('html').should('have.class', DARK_MODE_CLASS)
     })
 
