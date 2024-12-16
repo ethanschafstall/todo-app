@@ -1,22 +1,21 @@
-const CREATE_TASK_BUTTON = ''
 const ADD_BUTTON = 'Ajouter'
 
 function createAccounts()
 {
   cy.clearCookies();
 
-  cy.visit(REGISTER_URL)
+  cy.visit('/register')
   cy.get('input[name="email"]').type('testuser@example.com')
   cy.get('input[name="password"]').type('1!TestPassword...')
   cy.get('input[name="confirmation"]').type('1!TestPassword...')
-  cy.contains(CREATE_ACCOUNT_BUTTON).click()
+  cy.contains('Créer un compte').click()
 }
 function logins()
 {
-  cy.visit(LOGIN_URL)
+  cy.visit('/login')
   cy.get('input[name="email"]').type('testuser@example.com')
   cy.get('input[name="password"]').type('1!TestPassword...')
-  cy.contains(CONNECT_BUTTON_TEXT).click()
+  cy.contains('Connecter').click()
 }
 
 describe('Check', () => {
