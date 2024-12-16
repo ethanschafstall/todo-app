@@ -17,7 +17,7 @@ const PROFIL_LINK = '#headlessui-menu-item-v-4'
 const DELETE_ACCOUNT_TEXT = 'Supprimer votre compte'
 const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
-let username = 'testuser@example.com'
+//let username = 'testuser@example.com'
 
 function createAccount() {
   //cy.exec('localStorage.clear()');
@@ -27,7 +27,7 @@ function createAccount() {
   //username = generateRandomMail();  // Utiliser une variable locale
 
   cy.visit(REGISTER_URL);
-  cy.get('input[name="email"]').type(username);
+  cy.get('input[name="email"]').type('testuser@example.com');
   cy.get('input[name="password"]').type('1!TestPassword...');
   cy.get('input[name="confirmation"]').type('1!TestPassword...');
   cy.contains('Créer votre compte').click(); // Soumettez le formulaire
@@ -35,7 +35,7 @@ function createAccount() {
 
 function login() {
   cy.visit(LOGIN_URL);
-  cy.get('input[name="email"]').type(username);
+  cy.get('input[name="email"]').type('testuser@example.com');
   cy.get('input[name="password"]').type('1!TestPassword...');
   cy.contains(CONNECT_BUTTON_TEXT).click();
 }
