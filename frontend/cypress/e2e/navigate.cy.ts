@@ -17,37 +17,21 @@ const PROFIL_LINK = '#headlessui-menu-item-v-4'
 const DELETE_ACCOUNT_TEXT = 'Supprimer votre compte'
 const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
-//let username = 'testuser@example.com'
-
-function createAccount() {
-  //cy.exec('localStorage.clear()');
-  //cy.exec('sessionStorage.clear()');
-  //cy.clearCookies();
-
-  //username = generateRandomMail();  // Utiliser une variable locale
-
-  cy.visit(REGISTER_URL);
-  cy.get('input[name="email"]').type('testuser@example.com');
-  cy.get('input[name="password"]').type('1!TestPassword...');
-  cy.get('input[name="confirmation"]').type('1!TestPassword...');
-  cy.contains('Créer votre compte').click(); // Soumettez le formulaire
+//Create an account to login
+createAccount()
+function createAccount()
+{
+  cy.visit(REGISTER_URL)
+  cy.get('input[name="email"]').type('testuser@example.com')
+  cy.get('input[name="password"]').type('1!TestPassword...')
+  cy.get('input[name="confirmation"]').type('1!TestPassword...')
 }
-
-function login() {
-  cy.visit(LOGIN_URL);
-  cy.get('input[name="email"]').type('testuser@example.com');
-  cy.get('input[name="password"]').type('1!TestPassword...');
-  cy.contains(CONNECT_BUTTON_TEXT).click();
-}
-
-function generateRandomMail() {
-  let randomString = '';
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for (let i = 0; i < 5; i++) {
-      randomString += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  randomString = randomString + "@test.com"
-  return randomString;
+function login()
+{
+  cy.visit('/login')
+  cy.get('input[name="email"]').type('testuser@example.com')
+  cy.get('input[name="password"]').type('1!TestPassword...')
+  cy.contains(CONNECT_BUTTON_TEXT).click()
 }
 
 describe('Check navigation', () => {
@@ -112,7 +96,7 @@ describe('Check navigation', () => {
       cy.get('html').should('have.class', DARK_MODE_CLASS)
       cy.url().should('include', REGISTER_URL)
     })
-    
+
     it('from dark theme login to login', () => {
       cy.visit(LOGIN_URL)
       cy.get(THEME_TOGGLE).click()
@@ -266,7 +250,7 @@ describe('Check navigation', () => {
       cy.contains(LOGO_TEXT).click()
       cy.url().should('contain', ROUTE_URL)
     })
- 
+
     it('from route to route', () => {
       createAccount()
       login()
@@ -274,7 +258,7 @@ describe('Check navigation', () => {
       cy.contains(ROUTE_TEXT).click()
       cy.url().should('contain', ROUTE_URL)
     })
- 
+
     it('from route to about', () => {
       createAccount()
       login()
@@ -282,7 +266,7 @@ describe('Check navigation', () => {
       cy.contains(ABOUT_TEXT).click()
       cy.url().should('contain', ABOUT_URL)
     })
- 
+
     it('from route to profile', () => {
       createAccount()
       login()
@@ -291,9 +275,9 @@ describe('Check navigation', () => {
       cy.get(PROFIL_LINK).click()
       cy.url().should('contain', PROFIL_URL)
     })
- 
+
     //TODO if diconnect light theme
- 
+
     it('from route to dark theme route', () => {
       createAccount()
       login()
