@@ -18,7 +18,7 @@ describe('Check', () => {
     })
     it('disconnecting', () => {
         cy.visit('/')
-        cy.get('#headlessui-menu-button-v-2').click()
+        cy.get('#headlessui-menu-button-v-5').click()
         cy.get(DISCONNECT_BUTTON).click()
         cy.url().should('contain', '/login') //Should redirect to the login menu
     })
