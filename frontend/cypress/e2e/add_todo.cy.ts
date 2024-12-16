@@ -1,10 +1,28 @@
 const CREATE_TASK_BUTTON = ''
 const ADD_BUTTON = 'Ajouter'
 
+function createAccounts()
+{
+  cy.clearCookies();
+
+  cy.visit(REGISTER_URL)
+  cy.get('input[name="email"]').type('testuser@example.com')
+  cy.get('input[name="password"]').type('1!TestPassword...')
+  cy.get('input[name="confirmation"]').type('1!TestPassword...')
+  cy.contains(CREATE_ACCOUNT_BUTTON).click()
+}
+function logins()
+{
+  cy.visit(LOGIN_URL)
+  cy.get('input[name="email"]').type('testuser@example.com')
+  cy.get('input[name="password"]').type('1!TestPassword...')
+  cy.contains(CONNECT_BUTTON_TEXT).click()
+}
+
 describe('Check', () => {
     it('creating a TODO', () => {
-        createAccount()
-        login()
+        createAccounts()
+        logins()
         cy.get('input[name="text"]').type('test Task 1')
         cy.contains(ADD_BUTTON).click()
         cy.should('contain', 'test Task 1')
