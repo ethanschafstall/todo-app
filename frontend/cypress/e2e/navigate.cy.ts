@@ -2,7 +2,7 @@ const LOGIN_URL = '/login'
 const ABOUT_URL = '/about'
 const REGISTER_URL = '/register'
 const URL_404 = '/404'
-const ROUTE_URL = 'http://localhost:4173'
+const ROUTE_URL = 'localhost:4173'
 const PROFIL_URL = '/profile'
 const THEME_TOGGLE = '#theme-toggle'
 const LOGO_TEXT = 'Todo'
@@ -187,7 +187,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(ABOUT_URL)
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('equal', ROUTE_URL)
+      cy.url().should('not.include', '/')
     })
 
     it('from about to route by nav', () => {
