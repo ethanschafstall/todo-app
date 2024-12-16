@@ -34,7 +34,7 @@ function createAccount()
 }
 function login()
 {
-  cy.visit('/login')
+  cy.visit(LOGIN_URL)
   cy.get('input[name="email"]').type('testuser@example.com')
   cy.get('input[name="password"]').type('1!TestPassword...')
   cy.contains(CONNECT_BUTTON_TEXT).click()
