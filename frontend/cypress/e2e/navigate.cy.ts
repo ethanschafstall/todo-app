@@ -187,7 +187,7 @@ describe('Check navigation', () => {
       login()
       cy.visit(ABOUT_URL)
       cy.contains(LOGO_TEXT).click()
-      cy.url().should('not.include', '/')
+      cy.url().should('not.contain', '/')
     })
 
     it('from about to route by nav', () => {
