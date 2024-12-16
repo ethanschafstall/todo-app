@@ -18,7 +18,7 @@ const DELETE_ACCOUNT_TEXT = 'Supprimer votre compte'
 const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
 //Create an account to login
-createAccount()
+//createAccount()
 function createAccount()
 {
   cy.visit(REGISTER_URL)
