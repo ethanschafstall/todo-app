@@ -17,14 +17,14 @@ const PROFIL_LINK = '#headlessui-menu-item-v-4'
 const DELETE_ACCOUNT_TEXT = 'Supprimer votre compte'
 const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
-let username = ""
+let username = generateRandomMail()
 
 function createAccount() {
-  cy.exec('localStorage.clear()');
-  cy.exec('sessionStorage.clear()');
-  cy.clearCookies();
+  //cy.exec('localStorage.clear()');
+  //cy.exec('sessionStorage.clear()');
+  //cy.clearCookies();
 
-  username = generateRandomString() + "@test";  // Utiliser une variable locale
+  username = generateRandomMail();  // Utiliser une variable locale
 
   cy.visit(REGISTER_URL);
   cy.get('input[name="email"]').type(username);
@@ -40,12 +40,13 @@ function login() {
   cy.contains(CONNECT_BUTTON_TEXT).click();
 }
 
-function generateRandomString() {
+function generateRandomMail() {
   let randomString = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
       randomString += characters.charAt(Math.floor(Math.random() * characters.length));
   }
+  randomString = randomString + "@test.com"
   return randomString;
 }
 
