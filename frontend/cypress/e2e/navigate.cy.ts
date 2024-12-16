@@ -17,14 +17,14 @@ const PROFIL_LINK = '#headlessui-menu-item-v-4'
 const DELETE_ACCOUNT_TEXT = 'Supprimer votre compte'
 const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 
-let username = generateRandomMail()
+let username = 'testuser@example.com'
 
 function createAccount() {
   //cy.exec('localStorage.clear()');
   //cy.exec('sessionStorage.clear()');
   //cy.clearCookies();
 
-  username = generateRandomMail();  // Utiliser une variable locale
+  //username = generateRandomMail();  // Utiliser une variable locale
 
   cy.visit(REGISTER_URL);
   cy.get('input[name="email"]').type(username);
