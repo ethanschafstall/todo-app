@@ -8,6 +8,7 @@ const THEME_TOGGLE = '#theme-toggle'
 const LOGO_TEXT = 'Todo'
 const ABOUT_TEXT = 'À Propos'
 const CREATE_ACCOUNT_TEXT = 'Créer votre compte'
+const CREATE_ACCOUNT_BUTTON = 'Créer un compte'
 const CONNECT_TEXT = 'Connectez-vous'
 const DARK_MODE_CLASS = 'dark'
 const CONNECT_BUTTON_TEXT = 'Connecter'
@@ -29,6 +30,7 @@ function createAccount()
   cy.get('input[name="email"]').type('testuser@example.com')
   cy.get('input[name="password"]').type('1!TestPassword...')
   cy.get('input[name="confirmation"]').type('1!TestPassword...')
+  cy.contains(CREATE_ACCOUNT_BUTTON).click()
 }
 function login()
 {
