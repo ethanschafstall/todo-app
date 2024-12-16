@@ -6,7 +6,7 @@ describe('Create an account', () => {
     cy.visit('/register')
 
     //type in input
-    cy.get('input[name="email"]').type('testuser@example.com')
+    cy.get('input[name="email"]').type('testuser1@example.com')
     cy.get('input[name="password"]').type('1!TestPassword...')
     cy.get('input[name="confirmation"]').type('1!TestPassword...')
 
