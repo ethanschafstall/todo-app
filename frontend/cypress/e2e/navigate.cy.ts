@@ -21,8 +21,8 @@ const REDIRECT_TEXT_404 = 'Retournez sur la page principale'
 //createAccount()
 function createAccount()
 {
-  cy.exec('localStorage.clear()');
-  cy.exec('sessionStorage.clear()');
+  //cy.exec('localStorage.clear()');
+  //cy.exec('sessionStorage.clear()');
   cy.clearCookies();
 
   cy.visit(REGISTER_URL)
