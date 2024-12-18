@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_app:
+  build_app: # and lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,10 +28,7 @@ jobs:
         run: |
           cd ./frontend
           npm audit | grep -E "high|critical" && echo "Vulnerabilities found" || echo "No vulnerabilities found"
-
-  lint_app:
-    runs-on: ubuntu-latest
-    steps:
+    
       - uses: actions/checkout@v4
       - name: Run esLint on frontend
         run: |
