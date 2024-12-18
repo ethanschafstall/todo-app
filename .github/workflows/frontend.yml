@@ -29,11 +29,9 @@ jobs:
           cd ./frontend
           npm audit | grep -E "high|critical" && echo "Vulnerabilities found" || echo "No vulnerabilities found"
     
-      - uses: actions/checkout@v4
       - name: Run esLint on frontend
         run: |
           cd ./frontend
-          npm install
           npm run lint
 
   test_app:
