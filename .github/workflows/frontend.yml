@@ -33,7 +33,8 @@ jobs:
       - name: Run esLint on frontend
         run: |
           cd ./frontend
-          npx eslint
+          npm install
+          npm run lint
 
   test_app:
     runs-on: ubuntu-latest
