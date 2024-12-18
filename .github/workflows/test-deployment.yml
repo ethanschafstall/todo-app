@@ -2,17 +2,13 @@ on:
   push:
     branches: 
       - "dev"
-    tags:
-      - "v*.*.*"
   workflow_dispatch:
 
 jobs:
   frontend:
-    if: startsWith(github.ref, 'refs/tags/v') #TODO check the format is X.Y.Z and they are number
     uses: ./.github/workflows/frontend.yml
 
   backend:
-    if: startsWith(github.ref, 'refs/tags/v') #TODO check the format is X.Y.Z and they are number
     uses: ./.github/workflows/backend.yml
 
   deploy_docker_image:
