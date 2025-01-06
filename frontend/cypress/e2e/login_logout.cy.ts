@@ -11,7 +11,7 @@ describe('Check', () => {
     })
     it('login into the account', () => {
         cy.visit('/login')
-        cy.get('input[name="email"]').type('testuser@example.com')
+        cy.get('input[name="email"]').type('testuser2@example.com')
         cy.get('input[name="password"]').type('1!TestPassword...')
         cy.contains('Connecter').click()
         cy.url().should('equal', 'http://localhost:4173/') //In that case the test to create the account worked

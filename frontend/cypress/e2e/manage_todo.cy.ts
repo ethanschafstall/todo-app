@@ -1,0 +1,19 @@
+describe('Check', () => {
+    it('deleting a task', () => {
+        cy.visit('/register')
+        cy.get('input[name="email"]').type('testuser4@example.com')
+        cy.get('input[name="password"]').type('1!TestPassword...')
+        cy.get('input[name="confirmation"]').type('1!TestPassword...')
+        cy.contains('Créer un compte').click()
+
+        cy.visit('/login')
+        cy.get('input[name="email"]').type('testuser4@example.com')
+        cy.get('input[name="password"]').type('1!TestPassword...')
+        cy.contains('Connecter').click()
+
+        cy.get('ul').children().should('have.length', 1)
+        cy.get('input[name="text"]').type('Laundry')
+        cy.contains('Ajouter').click()
+        cy.get('ul').children().should('have.length', 2)
+    })
+})
