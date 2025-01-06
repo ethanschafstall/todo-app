@@ -1,6 +1,7 @@
 on: [push]
+
 jobs:
-  cypress:
+  cypress-edge:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit
@@ -11,16 +12,6 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: Install backend dependencies
-        run: |
-          cd ./backend
-          npm install
-
-      - name: Start backend
-        run: |
-          cd ./backend
-          npm start &
-      
       - name: Install frontend dependencies
         run: |
           cd ./frontend
@@ -30,15 +21,45 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           working-directory: frontend
-          build: npm run build
-          start: npm start
           browser: edge
-      
+
+  cypress-chrome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the latest commit
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Install frontend dependencies
+        run: |
+          cd ./frontend
+          npm install
+
       - name: Cypress run on Chrome
         uses: cypress-io/github-action@v6
         with:
           working-directory: frontend
           browser: chrome
+
+  cypress-firefox:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the latest commit
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Install frontend dependencies
+        run: |
+          cd ./frontend
+          npm install
 
       - name: Cypress run on Firefox
         uses: cypress-io/github-action@v6
