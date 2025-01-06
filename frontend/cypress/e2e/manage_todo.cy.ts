@@ -1,5 +1,5 @@
 describe('Check', () => {
-    it('deleting a task', () => {
+    it('adding task', () => {
         cy.visit('/register')
         cy.get('input[name="email"]').type('testuser4@example.com')
         cy.get('input[name="password"]').type('1!TestPassword...')
