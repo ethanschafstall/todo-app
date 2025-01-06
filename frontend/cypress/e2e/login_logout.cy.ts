@@ -31,6 +31,6 @@ describe('Check', () => {
         cy.visit('/')
         cy.get('#headlessui-menu-button-v-2').click()
         cy.get(DISCONNECT_BUTTON).click()
-        cy.should('not.contain', '#headlessui-menu-button-v-2')
+        cy.get('#headlessui-menu-button-v-2').should('not.exist')
     })
 })
