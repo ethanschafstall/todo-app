@@ -17,6 +17,17 @@ describe('Check', () => {
         cy.url().should('equal', 'http://localhost:4173/') //In that case the test to create the account worked
     })
     it('disconnecting', () => {
+        cy.visit('/register')
+        cy.get('input[name="email"]').type('testuser@example.com')
+        cy.get('input[name="password"]').type('1!TestPassword...')
+        cy.get('input[name="confirmation"]').type('1!TestPassword...')
+        cy.contains('Créer un compte').click()
+
+        cy.visit('/login')
+        cy.get('input[name="email"]').type('testuser@example.com')
+        cy.get('input[name="password"]').type('1!TestPassword...')
+        cy.contains('Connecter').click()
+
         cy.visit('/')
         cy.get('#headlessui-menu-button-v-5').click()
         cy.get(DISCONNECT_BUTTON).click()

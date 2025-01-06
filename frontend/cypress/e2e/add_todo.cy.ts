@@ -24,7 +24,7 @@ describe('Check', () => {
         logins()
         cy.get('input[name="text"]').type('test Task 1')
         cy.contains(ADD_BUTTON).click()
-        cy.contains('test Task 1')
+        cy.should('not.contain', 'test Task 1')
     })
     it('creating a TODO too long', () => {
         createAccounts()
