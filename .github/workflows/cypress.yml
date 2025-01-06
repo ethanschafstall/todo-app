@@ -25,19 +25,13 @@ jobs:
         run: |
           cd ./frontend
           npm install
-      
-      - name: Build the app
-        run: npm run build  
-        working-directory: frontend
-
-      - name: Start the app
-        run: npm start &
-        working-directory: frontend
 
       - name: Cypress run on Edge
         uses: cypress-io/github-action@v6
         with:
           working-directory: frontend
+          build: npm run build
+          start: npm start
           browser: edge
       
       - name: Cypress run on Chrome
