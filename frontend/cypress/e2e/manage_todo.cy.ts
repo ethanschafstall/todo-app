@@ -16,6 +16,7 @@ describe('Check', () => {
         cy.get('input[name="text"]').type('Laundry')
         cy.contains('Ajouter').click()
 
+        cy.reload();
         cy.contains('Aucune tâche ...').should('not.exist')
     })
 })
