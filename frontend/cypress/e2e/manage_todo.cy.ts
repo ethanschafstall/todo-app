@@ -16,6 +16,6 @@ describe('Check', () => {
         cy.get('input[name="text"]').type('Laundry')
         cy.contains('Ajouter').click()
 
-        cy.should('not.contain', 'Aucune tâche ...')
+        cy.contains('Aucune tâche ...').should('not')
     })
 })
