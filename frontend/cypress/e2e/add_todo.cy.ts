@@ -22,7 +22,6 @@ describe('Check', () => {
     it('creating a TODO', () => {
         createAccounts()
         logins()
-        cy.visit('/')
         cy.get('input[name="text"]').type('test Task 1')
         cy.contains(ADD_BUTTON).click()
         cy.contains('test Task 1')
