@@ -11,7 +11,7 @@ describe('Check', () => {
         cy.get('input[name="password"]').type('1!TestPassword...')
         cy.contains('Connecter').click()
 
-        cy.should('contain', 'Aucune tâche ...')
+        cy.contains('Aucune tâche ...')
 
         cy.get('input[name="text"]').type('Laundry')
         cy.contains('Ajouter').click()
