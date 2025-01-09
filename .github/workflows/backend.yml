@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@master
       
       - name: Authenticate Snyk
-        run: snyk auth $SNYK_TOKEN
+        run: npx snyk auth $SNYK_TOKEN
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
