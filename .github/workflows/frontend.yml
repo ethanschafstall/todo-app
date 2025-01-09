@@ -6,8 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_app: # and lint
+  cypress_tests:
+    uses: ./.github/workflows/cypress_tests.yml
+
+  build_app:
     runs-on: ubuntu-latest
+    needs: 
+      - cypress_tests
     steps:
       - uses: actions/checkout@v4
   
@@ -33,10 +38,3 @@ jobs:
         run: |
           cd ./frontend
           npm run lint
-
-  test_app:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run unit test
-        run: echo "TODO e2e test"
