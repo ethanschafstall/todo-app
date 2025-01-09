@@ -40,31 +40,38 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run unit test
         run: echo "TODO unit test"
-
-  audit_security:
+  security:
     runs-on: ubuntu-latest
-    env:
-      SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
+      steps:
+        - uses: actions/checkout@master
+        - name: Run Snyk to check for vulnerabilities
+          uses: snyk/actions/node@master
+          env:
+            SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
+  # audit_security:
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@master
       
-      - name: Install Snyk
-        run: npm install -g snyk
+  #     - name: Install Snyk
+  #       run: npm install -g snyk
 
-      # - name: Auth Snyk
-      #   shell: bash
-      #   env:
-      #     SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
-      #   run: |
-      #     snyk auth --auth-type=token "$SNYK_TOKEN"
+  #     # - name: Auth Snyk
+  #     #   shell: bash
+  #     #   env:
+  #     #     SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
+  #     #   run: |
+  #     #     snyk auth --auth-type=token "$SNYK_TOKEN"
 
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        with:
-          args: test --severity-threshold=high --sarif-file-output=snyk.sarif
+  #     - name: Run Snyk to check for vulnerabilities
+  #       uses: snyk/actions/node@master
+  #       with:
+  #         args: test --severity-threshold=high --sarif-file-output=snyk.sarif
 
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: snyk.sarif
+  #     - name: Upload result to GitHub Code Scanning
+  #       uses: github/codeql-action/upload-sarif@v2
+  #       with:
+  #         sarif_file: snyk.sarif
