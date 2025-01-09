@@ -9,7 +9,7 @@ jobs:
     
     steps:
       - name: Tag
-        uses: K-Phoen/semver-release-action@master
+        uses: K-Phoen/semver-release-action@master 
         with:
           release_branch: test-semver
         env:
@@ -30,3 +30,4 @@ jobs:
         with:
           name: ${{ steps.version.outputs.nextVersion }}
           tag_name: ${{ steps.version.outputs.nextVersion }}
+
