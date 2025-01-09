@@ -1,0 +1,53 @@
+on:
+  push:
+    branches: 
+      - "dev"
+  workflow_dispatch:
+
+jobs:
+  frontend:
+    uses: ./.github/workflows/frontend.yml
+
+  backend:
+    uses: ./.github/workflows/backend.yml
+
+  deploy_docker_image:
+    runs-on: ubuntu-latest
+    needs: 
+      - frontend
+      - backend
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ vars.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build the docker image latest
+      run: docker build . --file Dockerfile --tag todo-app:latest #TODO : date +%S differs when executed later
+
+    - name: Push Docker image to Docker Hub latest
+      run: |
+        docker tag todo-app:latest ${{ vars.DOCKER_USERNAME }}/todo-app:latest
+        docker push ${{ vars.DOCKER_USERNAME }}/todo-app:latest
+
+    - name: Get latest tag
+      run: |
+        git fetch --tags 
+        LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+        echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
+
+    - name: Build the docker image with SemVer
+      run: docker build . --file Dockerfile --tag todo-app:$LATEST_TAG #TODO : date +%S differs when executed later
+
+    - name: Push Docker image to Docker Hub SemVer
+      run: |
+        docker tag todo-app:$LATEST_TAG ${{ vars.DOCKER_USERNAME }}/todo-app:$LATEST_TAG
+        docker push ${{ vars.DOCKER_USERNAME }}/todo-app:$LATEST_TAG
+  
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: codfish/semantic-release-action@v3.5.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
