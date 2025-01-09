@@ -4,6 +4,7 @@ on:
 
 jobs:
   cypress-edge:
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit
@@ -38,6 +39,7 @@ jobs:
           browser: edge
 
   cypress-chrome:
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit
@@ -72,6 +74,7 @@ jobs:
           browser: chrome
 
   cypress-firefox:
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit
