@@ -10,3 +10,6 @@ jobs:
     steps:
       - name: SemRelease
         uses: btnguyen2k/action-semrelease@v3.4.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          dry-run: true
