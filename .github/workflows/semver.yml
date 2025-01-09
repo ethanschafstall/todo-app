@@ -8,26 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Tag
-        uses: K-Phoen/semver-release-action@master 
-        with:
-          release_branch: test-semver
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # release:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: version
-  #       id: version
-  #       uses: flatherskevin/semver-action@v1
-  #       with:
-  #         incrementLevel: patch
-  #         source: tags
-  #     - name: Release
-  #       uses: softprops/action-gh-release@v1
-  #       with:
-  #         name: ${{ steps.version.outputs.nextVersion }}
-  #         tag_name: ${{ steps.version.outputs.nextVersion }}
-
+      - name: SemRelease
+        uses: btnguyen2k/action-semrelease@v3.4.0
