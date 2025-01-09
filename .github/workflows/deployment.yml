@@ -23,7 +23,7 @@ jobs:
       run: docker login -u ${{ vars.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the docker image latest
-      run: docker build . --file Dockerfile --tag todo-app:latest #TODO : date +%S differs when executed later
+      run: docker build . --file Dockerfile --tag todo-app:latest
 
     - name: Push Docker image to Docker Hub latest
       run: |
@@ -37,7 +37,7 @@ jobs:
         echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
 
     - name: Build the docker image with SemVer
-      run: docker build . --file Dockerfile --tag todo-app:$LATEST_TAG #TODO : date +%S differs when executed later
+      run: docker build . --file Dockerfile --tag todo-app:$LATEST_TAG
 
     - name: Push Docker image to Docker Hub SemVer
       run: |
