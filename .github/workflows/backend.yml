@@ -53,7 +53,7 @@ jobs:
         run: npm install -g snyk
 
       - name: Auth Snyk
-        run: snyk auth --auth-type=token SNYK_TOKEN=$SNYK_TOKEN
+        run: snyk auth --auth-type=token SNYK_TOKEN
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
