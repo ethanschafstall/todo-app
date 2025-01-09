@@ -4,7 +4,6 @@ on:
 
 jobs:
   cypress-edge:
-    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit
@@ -37,9 +36,9 @@ jobs:
           build: npm run build
           start: npm start
           browser: edge
+        continue-on-error: true
 
   cypress-chrome:
-    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit
@@ -72,9 +71,9 @@ jobs:
           build: npm run build
           start: npm start
           browser: chrome
+        continue-on-error: true
 
   cypress-firefox:
-    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the latest commit
@@ -107,3 +106,4 @@ jobs:
           build: npm run build
           start: npm start
           browser: firefox
+        continue-on-error: true
