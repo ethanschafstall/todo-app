@@ -43,3 +43,11 @@ jobs:
       run: |
         docker tag todo-app:$LATEST_TAG ${{ vars.DOCKER_USERNAME }}/todo-app:$LATEST_TAG
         docker push ${{ vars.DOCKER_USERNAME }}/todo-app:$LATEST_TAG
+  
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: codfish/semantic-release-action@v3.5.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
