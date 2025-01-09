@@ -43,6 +43,8 @@ jobs:
 
   audit_security:
     runs-on: ubuntu-latest
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -51,14 +53,10 @@ jobs:
         run: npm install -g snyk
 
       - name: Auth Snyk
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk auth $SNYK_TOKEN
+        run: snyk auth --auth-type=token $SNYK_TOKEN
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: test --severity-threshold=high --sarif-file-output=snyk.sarif
 
