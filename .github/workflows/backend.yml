@@ -48,6 +48,8 @@ jobs:
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
+      with:
+        args: test --severity-threshold=high --sarif-file-output=snyk.sarif
   # audit_security:
   #   runs-on: ubuntu-latest
   #   env:
