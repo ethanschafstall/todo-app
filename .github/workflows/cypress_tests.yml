@@ -1,4 +1,7 @@
-on: [push]
+on:
+  workflow_call:
+  workflow_dispatch:
+
 jobs:
   cypress:
     runs-on: ubuntu-latest
