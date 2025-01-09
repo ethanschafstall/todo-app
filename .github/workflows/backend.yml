@@ -53,7 +53,7 @@ jobs:
         run: npm install -g snyk
 
       - name: Auth Snyk
-      - shell: bash
+        shell: bash
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
