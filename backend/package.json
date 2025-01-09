@@ -20,8 +20,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.9.0",
     "mongodb-memory-server": "^10.1.2",
-    "mongoose": "^8.7.2",
-    "snyk": "^1.1295.0"
+    "mongoose": "^8.7.2"
   },
   "devDependencies": {
     "eslint": "^9.13.0",
