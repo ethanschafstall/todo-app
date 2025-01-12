@@ -20,4 +20,6 @@ jobs:
           npm audit fix
 
       - name: Run unit test
-        run: npm run test:ci
+        run: |
+          cd ./backend
+          npm run test:ci
