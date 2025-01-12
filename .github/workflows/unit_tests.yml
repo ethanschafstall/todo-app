@@ -7,5 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+    
+      - name: npm install and build backend
+        run: |
+          cd ./backend
+          npm install
+          npm audit fix
+
       - name: Run unit test
-        run: echo "npm run test:ci"
+        run: |
+          cd ./backend
+          npm run test:ci
+        continue-on-error: true #Only for the project, all unit tests should pass for a proper deployment.
